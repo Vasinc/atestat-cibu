@@ -133,6 +133,30 @@ body {
   transition: opacity 400ms linear;
 }
 
+#header-ul .active-li {
+  color: #333;
+}
+
+.section-container {
+  display: none;
+  height: calc( 100vh - 4rem);
+  width: 100%;
+  background: #E76F51;
+  overflow-y: scroll;
+}
+
+.section-container h1 {
+  padding: 2rem;
+  text-align: center;
+  color: #E0E0E0;
+}
+
+.section-container h1 .h1-letter {
+  opacity: 0;
+  -webkit-transition: opacity 150ms linear;
+  transition: opacity 150ms linear;
+}
+
 @media screen and (min-width: 800px) {
   body header #header-ul {
     max-width: 600px;

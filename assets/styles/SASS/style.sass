@@ -16,6 +16,7 @@ body
 // variables 
 $orange-red: #E76F51
 $grey: #E0E0E0 
+$dark-grey: #333
 $light-blue: #0084FF
 
 // classes
@@ -96,6 +97,22 @@ $light-blue: #0084FF
         opacity: 0
         cursor: pointer
         transition: opacity 400ms linear
+    .active-li
+        color: $dark-grey
+
+.section-container
+    display: none
+    height: calc( 100vh - 4rem )
+    width: 100%
+    background: $orange-red
+    overflow-y: scroll
+    h1
+        padding: 2rem
+        text-align: center
+        color: $grey
+        .h1-letter
+            opacity: 0
+            transition: opacity 150ms linear
 
 @media screen and ( min-width: 800px )
     body
