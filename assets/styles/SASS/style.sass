@@ -6,6 +6,7 @@
     margin: 0
     padding: 0
     box-sizing: inherit
+    -webkit-tap-highlight-color: transparent
 
 body
     box-sizing: border-box
@@ -27,4 +28,80 @@ $light-blue: #0084FF
 .display-none
     display: none !important
 
+.burger-active
+    z-index: 1001
+    .burger-line:first-of-type
+        transform: rotate(45deg) translateX(.35rem) 
+    .burger-line:nth-of-type(2)
+        transform: rotate(-45deg) translateX(.3rem)
+    .burger-line:last-of-type
+        display: none
+
+.width-70
+    width: 70% !important
+
+.opacity-1
+    opacity: 1 !important
+
 // actual styling
+#backdrop
+    display: none
+    position: absolute
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, .4)
+    z-index: 999
+
+#main-nav
+    height: 4rem
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    background: darken($orange-red, 5%)
+    color: $grey
+    padding: 0 2rem
+    .burger-menu
+        display: flex
+        flex-direction: column
+        gap: .3rem
+        width: 2rem
+        cursor: pointer
+        .burger-line
+            width: 100%
+            height: .2rem
+            background: $grey
+            transition: all 300ms linear
+
+#header-ul
+    position: absolute
+    display: none
+    flex-direction: column
+    gap: 2rem
+    top: 0
+    right: 0
+    height: 100%
+    width: 0
+    max-width: 400px
+    font-weight: 700
+    font-size: 1.25rem
+    background: lighten($orange-red, 10%)
+    color: $grey
+    padding: 2rem
+    list-style: none
+    z-index: 1000
+    transition: all 300ms ease-out
+    .header-ul__li
+        text-decoration: underline
+        opacity: 0
+        cursor: pointer
+        transition: opacity 400ms linear
+
+@media screen and ( min-width: 800px )
+    body
+        header
+            #header-ul
+                max-width: 600px
+                gap: 2.5rem
+                padding: 2.5rem 3rem
+                font-size: 1.35rem
