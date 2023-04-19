@@ -64,17 +64,17 @@ headerUl.addEventListener('click', event => {
     
     console.log(H1Letters)
 
-    let iterations = 0;
+    let lettersIterations = 0;
 
     const interval = setInterval(() => {
         
-        H1Letters[iterations].classList.add('opacity-1')
+        H1Letters[lettersIterations].classList.add('opacity-1')
 
-        if(iterations >= sectionH1Letters.length - 1) {
+        if(lettersIterations >= sectionH1Letters.length - 1) {
             clearInterval(interval);
         }
 
-        iterations += 1;
+        lettersIterations += 1;
 
     }, 100);
 
@@ -90,25 +90,50 @@ headerUl.addEventListener('click', event => {
 })
 
 hackEffectTexts.forEach(hackEffectText => {
-    hackEffectText.onmouseover = event => {
-        let iterations = 0;
-    
-        const interval = setInterval(() => {
-            event.target.innerText = event.target.innerText.split('')
-                .map((letter, index) => {
-                    if(index < iterations) {
-                        return event.target.dataset.value[index];
+    ['mouseover', 'touchstart'].forEach(eventName => {
+        hackEffectText.addEventListener(eventName, event => {
+            let iterations = 0;
+        
+            const interval = setInterval(() => {
+                event.target.innerText = event.target.innerText.split('')
+                    .map((letter, index) => {
+                        if(index < iterations) {
+                            return event.target.dataset.value[index];
+                        }
+        
+                        return letters[Math.floor(Math.random() * 26)]
+                    })
+                    .join("")
+                    if (iterations >= event.target.dataset.value.length) {
+                        clearInterval(interval)
                     }
+        
+                    iterations += 1 / 3;
+            }, 30);
+        });
+    });
+});
+
+// hackEffectTexts.forEach(hackEffectText => {
+//     hackEffectText.onmouseover = event => {
+//         let iterations = 0;
     
-                    return letters[Math.floor(Math.random() * letters.length)]
-                })
-                .join("")
-                if (iterations >= event.target.dataset.value.length) {
-                    clearInterval(interval)
-                }
+//         const interval = setInterval(() => {
+//             event.target.innerText = event.target.innerText.split('')
+//                 .map((letter, index) => {
+//                     if(index < iterations) {
+//                         return event.target.dataset.value[index];
+//                     }
     
-                iterations += 1 / 3;
-        }, 30);
+//                     return letters[Math.floor(Math.random() * 26)]
+//                 })
+//                 .join("")
+//                 if (iterations >= event.target.dataset.value.length) {
+//                     clearInterval(interval)
+//                 }
     
-    }
-})
+//                 iterations += 1 / 3;
+//         }, 30);
+    
+//     }
+// })
