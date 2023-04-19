@@ -18,6 +18,7 @@ $orange-red: #E76F51
 $grey: #E0E0E0 
 $dark-grey: #333
 $light-blue: #0084FF
+$yellow: #f9f107
 
 // classes
 .display-block
@@ -92,6 +93,19 @@ $light-blue: #0084FF
     list-style: none
     z-index: 1000
     transition: all 300ms ease-out
+    .header-ul__li:last-of-type
+        position: relative
+        #progress-bar
+            position: absolute
+            bottom: -1.55rem
+            left: 0            
+            width: 4rem
+            height: 1.4rem
+            border: 2px solid black
+            #progress-content
+                width: 50%
+                height: 100%
+                background: $light-blue
     .header-ul__li
         text-decoration: underline
         opacity: 0
@@ -123,7 +137,31 @@ $light-blue: #0084FF
             p
                 max-width: 550px
                 text-indent: 2rem
+                line-height: 1.75
                 margin: 2rem auto
+                .blue-bg
+                    background: $light-blue
+                    color: white
+                    padding: .1rem
+                    font-style: italic
+                .yellow-bg
+                    background: $yellow
+                    color: black
+                    padding: .1rem
+                    font-style: italic
+                .underline
+                    text-decoration: underline
+                .biggersize
+                    font-size: 1.4rem
+                .bold
+                    font-weight: 700
+                .darkgrey
+                    color: $dark-grey
+            img
+                display: block
+                margin: 1rem auto
+                width: 70%
+                max-width: 448px
             h2
                 padding: 2rem
                 text-align: center
@@ -144,6 +182,143 @@ $light-blue: #0084FF
                 &:hover
                     text-decoration: underline
 
+#Test-EQ
+    .section-content
+        width: 100%
+        height: 100%
+        .test-section
+            display: none
+            width: 100%
+            height: 100%
+            padding: 2rem
+            background: lighten($orange-red, 20%)
+            color: $dark-grey
+        #test-section__info
+            .section-content
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                gap: 1rem
+                color: $dark-grey
+                text-align: center
+                .pages-left
+                    display: flex
+                    flex-direction: column
+                    gap: .5rem
+                    .page-left
+                        color: $orange-red
+                        font-weight: 700
+        #test-section__buttons
+            .section-innerContent
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                gap: 2rem
+                height: 100%
+                .button-section__text
+                    font-weight: 700
+                    text-align: center
+                    max-width: 400px
+                #startButton
+                    padding: .75rem 1rem
+                    background: darken($orange-red, 10%)
+                    color: white
+                    font-weight: 700
+                    border: 0
+                    box-shadow: 6px 6px 8px 4px rgba(0, 0, 0, .4)
+                    cursor: pointer
+                    transition: transform 100ms linear
+                    &:active
+                        transform: scale(.95)
+        #test-section__questions
+            .section-content
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                gap: 1rem
+                padding: 1rem
+                background: lighten($orange-red, 10%)
+                color: black
+                box-shadow: 0 0 8px 8px lighten($orange-red, 5%)
+                h2
+
+                    #questionsAnswered
+                        color: $yellow
+                #questionText
+                    text-align: center
+                .answers-container
+                    display: flex
+                    flex-direction: column
+                    gap: .5rem
+                    .answers-rows
+                        display: flex
+                        flex-direction: column
+                        gap: .5rem
+                        .answers-row
+                            display: flex
+                            flex-direction: column
+                            gap: .5rem
+                            .answer
+                                text-align: center
+                                padding: .25rem .75rem
+                                background: $orange-red
+                                border: 1px solid black
+                                border-radius: .5rem
+                                box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, .4)
+                                cursor: pointer
+                            .selected-answer
+                                background: lighten($yellow, 30%)
+                    .answers-row
+                        display: flex
+                        flex-direction: column
+                        gap: .5rem
+                        .answer
+                            text-align: center
+                            padding: .25rem .75rem
+                            background: $orange-red
+                            border: 1px solid black
+                            border-radius: .5rem
+                            box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, .4)
+                            cursor: pointer
+                        .selected-answer
+                            background: lighten($yellow, 30%)
+                #answerButton
+                    padding: .25rem .75rem
+                    border: 1px solid black
+                    border-radius: .25rem
+                    background: darken($orange-red, 30%)
+                    color: white
+                    font-weight: 700
+                    cursor: pointer
+        #test-section__score
+            .section-content
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                gap: 1rem
+                text-align: center
+                color: $dark-grey
+                max-width: 600px
+                margin: auto
+                h2
+                    #points
+                        color: darken($yellow, 20%)
+                    #grade
+                        color: $light-blue
+
+@media screen and ( max-width: 350px )
+    body
+        main
+            #Test-EQ
+                #test-section__questions
+                        .section-content
+                            #questionText
+                                font-size: 1rem
+
 @media screen and ( min-width: 800px )
     body
         header
@@ -161,3 +336,81 @@ $light-blue: #0084FF
                         font-size: 1.25rem
                 .section-footer
                     font-size: 1.4rem
+            #Test-EQ
+                .section-content
+                    #test-section__info
+                        .section-content
+                            font-size: 1.5rem
+                    #test-section__buttons
+                        .section-innerContent
+                            .button-section__text
+                                font-size: 1.5rem
+                                max-width: 450px
+                            #startButton
+                                padding: 1rem 2rem
+                    #test-section__questions
+                        .section-content
+                            h2
+
+                                #questionsAnswered
+
+                            #questionText
+                                font-size: 1.25rem
+                            .answers-container
+                                gap: 1.5rem
+                                .answers-rows
+                                    flex-direction: row
+                                    gap: 1.5rem
+                                    .answers-row
+                                        gap: 1.5rem
+                                        .answer
+                                            padding: .5rem 1.5rem
+                                            
+                                .answers-row
+                                        
+                                        .answer
+
+                            #answerButton
+                                padding: .75rem 2rem
+                                margin-top: .5rem
+                    #test-section__score
+                        .section-content   
+                            font-size: 1.5rem
+                            gap: 3rem
+
+@media screen and ( min-width: 1100px ) 
+    body
+        main
+            #Test-EQ
+                .section-content
+                    #test-section__buttons
+                        .section-innerContent
+                            .button-section__text
+                                font-size: 1.5rem
+                                max-width: 450px
+                            #startButton
+                                padding: 1rem 2rem
+                    #test-section__questions
+                        .section-content
+                            h2
+
+                                #questionsAnswered
+
+                            #questionText
+                                font-size: 1.35rem
+                            .answers-container
+                                gap: 2rem
+                                .answers-rows
+                                    flex-direction: row
+                                    gap: 2rem
+                                    .answers-row
+                                        gap: 2rem
+                                        .answer
+                                            padding: 1rem 2rem
+                                            
+                                .answers-row
+                                        .answer
+                                            padding: 1rem 2rem
+                            #answerButton
+                                padding: 1.25rem 2.25rem
+                                margin-top: .5rem                                 

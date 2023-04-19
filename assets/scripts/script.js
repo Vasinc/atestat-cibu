@@ -4,6 +4,12 @@ const backdrop = document.getElementById('backdrop');
 const headerUl = document.getElementById('header-ul');
 const headerLi = document.querySelectorAll('.header-ul__li');
 const hackEffectTexts = document.querySelectorAll('.hack-effect__text');
+const infoSection = document.getElementById('test-section__info');
+const buttonsSection = document.getElementById('test-section__buttons');
+const questionsSection = document.getElementById('test-section__questions');
+const scoreSection = document.getElementById('test-section__score');
+const startButton = document.getElementById('startButton');
+
 
 const letters = "abcdefghijklmnopqrstuvwxyz"
 
@@ -61,8 +67,6 @@ headerUl.addEventListener('click', event => {
     })
         
     const H1Letters = sectionH1.querySelectorAll('.h1-letter');
-    
-    console.log(H1Letters)
 
     let lettersIterations = 0;
 
@@ -104,6 +108,7 @@ hackEffectTexts.forEach(hackEffectText => {
                         return letters[Math.floor(Math.random() * 26)]
                     })
                     .join("")
+
                     if (iterations >= event.target.dataset.value.length) {
                         clearInterval(interval)
                     }
@@ -114,26 +119,7 @@ hackEffectTexts.forEach(hackEffectText => {
     });
 });
 
-// hackEffectTexts.forEach(hackEffectText => {
-//     hackEffectText.onmouseover = event => {
-//         let iterations = 0;
-    
-//         const interval = setInterval(() => {
-//             event.target.innerText = event.target.innerText.split('')
-//                 .map((letter, index) => {
-//                     if(index < iterations) {
-//                         return event.target.dataset.value[index];
-//                     }
-    
-//                     return letters[Math.floor(Math.random() * 26)]
-//                 })
-//                 .join("")
-//                 if (iterations >= event.target.dataset.value.length) {
-//                     clearInterval(interval)
-//                 }
-    
-//                 iterations += 1 / 3;
-//         }, 30);
-    
-//     }
-// })
+startButton.addEventListener('click', () => {
+    buttonsSection.classList.remove('display-block');
+    questionsSection.classList.add('display-block')
+})
