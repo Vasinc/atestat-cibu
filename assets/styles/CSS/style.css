@@ -436,7 +436,7 @@ body {
 }
 
 #Test-EQ .section-content #test-section__questions .section-content .answers-container .answers-rows .answers-row .selected-answer {
-  background: #fdf99c;
+  background: #fdf99c !important;
 }
 
 #Test-EQ .section-content #test-section__questions .section-content .answers-container .answers-row {
@@ -475,6 +475,10 @@ body {
   cursor: pointer;
 }
 
+#Test-EQ .section-content #test-section__score {
+  height: auto;
+}
+
 #Test-EQ .section-content #test-section__score .section-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -502,6 +506,26 @@ body {
 
 #Test-EQ .section-content #test-section__score .section-content h2 #grade {
   color: #0084FF;
+}
+
+#Test-EQ .section-content #test-section__score .section-content #exitButton {
+  padding: .75rem 1rem;
+  background: #e14a24;
+  color: white;
+  font-weight: 700;
+  border: 0;
+  -webkit-box-shadow: 6px 6px 8px 4px rgba(0, 0, 0, 0.4);
+          box-shadow: 6px 6px 8px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 100ms linear;
+  transition: -webkit-transform 100ms linear;
+  transition: transform 100ms linear;
+  transition: transform 100ms linear, -webkit-transform 100ms linear;
+}
+
+#Test-EQ .section-content #test-section__score .section-content #exitButton:active {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 @media screen and (max-width: 350px) {
@@ -562,6 +586,9 @@ body {
   body main #Test-EQ .section-content #test-section__score .section-content {
     font-size: 1.5rem;
     gap: 3rem;
+  }
+  body main #Test-EQ .section-content #test-section__score .section-content #exitButton {
+    padding: 1rem 2rem;
   }
 }
 
